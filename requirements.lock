@@ -1,0 +1,5 @@
+# Production Runtime Dependencies for Mobile Shop ERP
+bottle>=0.12.25
+beaker>=1.13.0
+waitress>=3.0.0
+tzdata>=2026.1

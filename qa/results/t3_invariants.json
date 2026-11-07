@@ -1,0 +1,63 @@
+{
+  "db": "mobile_erp.db",
+  "checks": [
+    {
+      "name": "PRAGMA integrity_check",
+      "status": "PASS",
+      "detail": "ok"
+    },
+    {
+      "name": "PRAGMA foreign_key_check",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Phone stock quantity matches IN_STOCK units",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "No duplicate IMEI1 across all units",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "No duplicate IMEI2 across all units",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "All non-voided sales have items",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Sale math grand_total correct",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "No negative customer udhaar balance",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "All SOLD units have exactly 1 active sale item",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "No PHONE sale items with unit_id=0/NULL",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "No empty-string barcodes",
+      "status": "PASS",
+      "detail": ""
+    }
+  ],
+  "pass": 11,
+  "fail": 0,
+  "overall": "PASS"
+}

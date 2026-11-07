@@ -1,0 +1,44 @@
+# Python bytecode and caches
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# Virtual environments
+venv/
+env/
+.env
+
+# Large Binary Builds, Bundles and Distributables
+dist/
+build/
+release/
+MobileShopERP/
+*.exe
+*.zip
+*.pkg
+*.spec
+*.iss
+
+# Local and test database backups and temp files
+*.db-shm
+*.db-wal
+*.bak
+*.bak*
+*.backup*
+backups/
+
+# User session, browser profiles and logs
+session_data/
+browser_profile_admin/
+browser_profile_counter/
+test_prof/
+logs/
+reports/
+active_port.txt
+
+# OS and IDE files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: mobile-shop-erp-pos
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python main.py
+    envVars:
+      - key: PORT
+        value: 10000
+      - key: HOST
+        value: 0.0.0.0
+      - key: APP_ENV
+        value: production

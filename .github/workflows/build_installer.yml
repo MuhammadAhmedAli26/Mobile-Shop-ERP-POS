@@ -1,0 +1,56 @@
+name: Build Windows Installer
+
+on:
+  push:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r mobile_edition/requirements.lock
+          pip install pyinstaller waitress
+
+      - name: Run verification tests
+        working-directory: mobile_edition
+        run: |
+          python test_search_fix_verification.py
+
+      - name: Clean database for production
+        working-directory: mobile_edition
+        run: |
+          python clean_database.py
+
+      - name: Build Executable with PyInstaller
+        working-directory: mobile_edition
+        run: |
+          pyinstaller --clean MobileShopERP.spec
+
+      - name: Install Inno Setup
+        run: |
+          choco install innosetup -y
+
+      - name: Compile Inno Setup Installer
+        working-directory: mobile_edition
+        run: |
+          & "C:\Program Files (x86)\Inno Setup 6\ISCC.exe" setup.iss
+
+      - name: Upload Release Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: MobileShopERP-Release
+          path: |
+            mobile_edition/release/*
+            mobile_edition/dist/MobileShopERP/*
